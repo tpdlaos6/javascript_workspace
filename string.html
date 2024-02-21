@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 연습</title>
+    <script>
+        let name1="hkd";
+        console.log(name1.length); // 글자 수
+        let name2="홍길동";
+        console.log(name2.length);
+
+        let str="text"
+        console.log(str.startsWith("te")); // 앞글자가 "te"로 시작하면 true, 아니면 false
+        console.log(str.endsWith("te")); // 끝글자가 "te"로 끝나면 ture, 아니면 false
+
+        let str3="abcd"
+        console.log(str3.indexOf("c")); // 배열처럼 맨 앞부터 0,1,2... 순서임
+        console.log(str3.indexOf("g")); // 콘솔창에 -1로 나오면 없다는 뜻
+        
+        let str4="abcda"
+        console.log(str4.lastIndexOf("a")) // 라스트 인덱스는 마지막꺼
+        
+        let str5="abc";
+        console.log(str5.repeat(3)) // repeat : 반복, 되풀이 하다. 즉, ()안에 숫자만큼 반복
+        console.log(str5) // repeat 한다고 원본이 바뀌진 않음. 복사해서 가져다 쓰는 개념
+        
+        let str6="abcde"
+        console.log(str6.replace("c","d")) 
+        console.log(str6) // repeat과 마찬가지로 원본이 바뀌진 않음. 복사해서 가져다 쓰는 개념
+        
+        let str7="abcde"
+        console.log(str7.split("e"))
+        console.log(str7) 
+        
+        let data="홍길동,서울,철학과"
+        console.log(data.split(","))
+        let arr=data.split(",") // , 안붙이면 1음절씩 호출됨. 주의!!!
+        console.log("이름 : "+arr[0]) 
+        console.log("주소 : "+arr[1]) 
+        console.log("전공 : "+arr[2]) 
+        
+        //예제) 확장자 구하기1
+        let file="pic1.jpg"; // 왼쪽 값의 확장자명을 구하고 싶을때
+        let arr1=file.split(".") // 스플릿을 써서 let으로 배열'arr1' 선언후 
+        console.log(arr1[1]) // 호출해서 사용하는 방법이 있음.
+        console.log(file.split(".")[1]) // 그러나 위 두줄을 이처럼 합쳐서 한줄로 표기 가능
+        console.log(arr1.length) // split과 length 두개를 함께써서 배열의 크기를 구함
+        console.log(arr1[arr1.length-1]) // 배열의 마지막요소를 구하려면, 배열의 크기 -1
+
+        //예제) 확장자 구하기2
+        let file2="pic1.a.b.jpg"; // 파일명에 .이 들어가있을 경우
+        console.log(file2.lastIndexOf(".")) // .이 
+        console.log(file2.substr(file2.lastIndexOf(".")+1))
+
+        let str8="abcd"
+        console.log(str8.toUpperCase()); // 소문자를 대문자로
+
+        let str9="ABCD"
+        console.log(str9.toLowerCase()); // 대문자를 소문자로
+
+        let str10="abcdefg";
+        console.log(str10.substr(3,2)); //substr은 ()번째부터 뒤에 쭉 표시라는 의미
+                                        //parameter가 두개일경우, 1번째 parameter부터 2번째 parameter까지 라는 뜻
+        console.log(str10.substring(3,6));//substring은 두번재 parameter가 미만의 뜻. 즉, 3번째부터 6미만까지라는 의미임.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

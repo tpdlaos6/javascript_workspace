@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function연습</title>
+</head>
+<body>
+    <script>
+        //함수 정의. 정의했다고해서 그것만으로 실행되지 않음.
+        //실행하기 위해선 호출해야 함
+        function hello(){
+            console.log("hello")
+
+        }
+
+        //함수호출(function call)
+        hello()//함수가 실행됨
+
+
+        //매개변수가 있는 함수
+        function plus(x){
+            console.log(x+2)
+        }
+        plus(5)
+
+
+        //리턴값이 있는 함수. 리턴값은 함수를 호출한 자리로 나간다
+        function plus2(x,y){
+            return x+y;
+        }
+        //함수 호출. 아래와 같이 하는 게 아니라.
+        plus2(1,2);
+        //이렇게 해야 함
+        console.log(plus2(1,2))
+
+        const func3=function(){
+            console.log("func3");
+        }
+        func3();
+
+        const func=func3;
+        func();
+
+        function func4(){
+            console.log("func4");
+        }
+
+        const func5=func4;
+        func5();
+
+        //function(){}는 본래 이름 없으면 호출 불가.
+        //다만, function 전체를 괄호로 묶으면 호출이 가능. 
+        //이를 익명함수 or 즉시실행함수라고 함
+        var result=(function(){
+            console.log("anonimous");
+          
+            function add(){
+                console.log("add")
+            }
+
+            return{add1:add};
+        })();
+
+        result.add1();
+
+
+
+    </script>
+</body>
+</html>

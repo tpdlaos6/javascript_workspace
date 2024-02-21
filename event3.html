@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script>
+        //문서가 로딩된 후 익명함수가 실행됨
+        document.addEventListener("DOMContentLoaded",function(){
+            let div=document.querySelector('#box1');
+            div.style.backgroundColor="orange";
+
+            let input=document.querySelector("input")
+            input.addEventListener("click", function(e){
+                //input 태그의 타입이 button이면 text로 변경
+                if(e.target.getAttribute("type")==="button"){
+                    e.target.setAttribute("type","text")
+                }
+            });
+
+            // change 이벤트. focus가 벗어나거나 enter키 쳤을때 발생.
+            //value(값)이 변경되어야만 발생!!!
+            input.addEventListener("change",function(e){  
+                e.target.setAttribute("type","button")
+            });
+        })
+        
+        function red(e){
+            e.target.backgroundColor="red";                        
+        }
+        function blue(e){
+            e.target.backgroundColor="blue";
+        }
+        function red2(e){
+            e.style.backgroundColor="red";
+        }
+        function blue2(e){
+            e.style.backgroundColor="blue";
+        }
+    </script>
+</head>
+<body>
+    <div id="box1">box1</div>
+    <button onmouseover="red(event)" onmouseleave="blue(event)">HERE</button>
+    <button onmouseover="red2(this)" onmouseleave="blue2(this)">HERE</button>
+    <input id="input" type="button" value="abcd">
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <script>
+        window.onload=function(){
+            let canvas=document.getElementById("myCanvas");
+            let brush=canvas.getContext("2d"); //붓역할 객체생성
+            brush.moveTo(0,0); // 시작점
+            brush.lineTo(200,200); // 끝점
+            brush.stroke()
+
+            brush.beginPath()
+            brush.arc(50,50,50,0,2*Math.PI*2) 
+            // 첫번째(50),두번째(50)는 좌표. 세번째(50)는 반지름. 네번째(0)는 시작점.
+            brush.stroke()
+            
+            brush.font="30px Arial";
+            brush.fillText("Happy",300,200)
+            
+            // let pic1=document.getElementById("pic1");
+            // brush.drawImage(pic1,50,50)
+
+            let img=new Image(); //이미지 객체
+            img.src="img/pic1.png"; 
+            img.onload=function(){
+                brush.drawImage(img,50,50);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img id="pic1" src="img/pic1.png"><br>
+    <canvas id="myCanvas" width="500" height="500" style="border : 1px solid black"></canvas>
+</body>
+</html>

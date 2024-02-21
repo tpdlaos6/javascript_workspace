@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //괄호()안에 첫번째는 함수 이름, 두번째는 콜백 함수
+        document.addEventListener("DOMContentLoaded",function(e){
+            let button=document.querySelector("input")
+            let img=document.querySelector("img")
+            let img1="img/hl 1.jpg";
+            let img2="img/hl 2.jpg";
+            let img3="img/profile.jpg";
+        button.addEventListener("click",
+            function(e){
+                let src=img.getAttribute("src")
+                if(src===img1){
+                    img.setAttribute("src",img2)
+                }else if(src===img2){
+                    img.setAttribute("src",img3)
+                }else {
+                    img.setAttribute("src",img1)
+                }
+            }            
+        )
+    }
+)
+    </script>
+</head>
+<body>
+    <input type="button" value="next"><br>
+    <img src="img/hl 1.jpg" width="400px">
+</body>
+</html>

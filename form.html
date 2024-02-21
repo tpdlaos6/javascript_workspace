@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check(){
+            if(document.loginForm.id.value==""){
+                alert("id를 입력하세요")
+                let msg1=document.querySelector("#msg1");
+                msg1.textContent="id를 입력하세요";
+                //전송이 안되도록 처리하기 위해 onsubmit="return false" 사용
+                //반대로 전송이 되게 하려면 쓰면 안되겠지?
+                return false;
+            }
+            if(document.loginForm.pw.value==""){
+                alert("pw를 입력하세요")
+                let msg2=document.querySelector("#msg2");
+                msg2.textContent="pw를 입력하세요";
+                //전송이 안되도록 처리하기 위해 onsubmit="return false" 사용
+                //반대로 전송이 되게 하려면 쓰면 안되겠지?
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form action="login" name="loginForm" method="post" onsubmit="return check();">
+        <input type="text" name="id" placeholder="id"><span id="msg1"></span><br>
+        <input type="password" name="pw" placeholder="pw"><span id="msg2"></span><br>
+        <input type="submit" value="로그인">
+
+    </form>
+</body>
+</html>

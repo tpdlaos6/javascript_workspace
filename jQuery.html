@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#hide").click(function(){
+                $("p").hide();
+            });
+            $("#show").click(function(){
+                $("p").show();
+            });
+            $("#toggle").click(function(){
+                $("p").toggle();
+            });
+            $("#fadeIn").click(function(){
+                $("p").fadeIn();
+            });
+            $("#fadeOut").click(function(){
+                $("p").fadeOut();
+            });
+            $("#fadeToggle").click(function(){
+                $("p").fadeToggle();
+            });
+            $("#slideUp").click(function(){
+                $("p").slideUp();
+            });
+            $("#slideDown").click(function(){
+                $("p").slideDown();
+            });
+            $("#slideToggle").click(function(){
+                $("p").slideToggle();
+            });
+            
+            //show,fade,slide 함수에서 callback은 동작이 완료된 후 호출됨
+            $("#callback").click(function(){
+                $("p").slideUp(5000,function(){
+                    console.log("Animation finished");
+                });
+            });
+            $("#p1").on("click",function(){
+                $(this).hide(); //$(this)는 이벤트가 발생한 자기 자신을 가리킴
+            })
+        });
+    </script>
+</head>
+<body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+    <button id="fadeIn">fadeIn</button>
+    <button id="fadeOut">fadeOut</button>
+    <button id="fadeToggle">fadeToggle</button>
+    <button id="slideUp">slideUp</button>
+    <button id="slideDown">slideDown</button>
+    <button id="slideToggle" style="background-color: red; color: white;">slideToggle</button>
+    <button id="callback">callback</button>
+    
+    <p>jQuery</p>
+    <p id="p1" style="cursor: pointer;">클릭</p>
+    
+</body>
+</html>

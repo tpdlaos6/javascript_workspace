@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        function numbering(n){
+            for(let i=0; i<n; i++)
+            console.log(i)
+        }
+        function red(){
+            let button=document.querySelector("#btn3");
+            button.style.backgroundColor="red";
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="alert('안녕하세요?')" value="click">
+    <input type="button" onclick="numbering(10)" value="click">
+    <input id="btn3" type="button" onclick="red()" value="click">
+
+    <script>
+        let button=document.querySelector("button");
+        button.addEventListener("click", function(){
+            alert("click!!!!");
+        });
+    </script>
+
+    <input id="input4">
+    <script>
+        let button2=document.querySelector("#input4")
+        // e는 event객체, event가 발생한 태그에 대한 정보를 가지고 있음
+        input.addEventListener("input",function(e){
+            console.log(e.target.value)
+            }
+        )
+    </script>
+</body>
+</html>
+

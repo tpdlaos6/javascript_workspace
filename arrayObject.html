@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array, Object 연습</title>
+    <script>
+        let a=[] // 대괄호가 오면 배열
+        let b={} // 중괄호가 오면 객체
+
+        let hkd=["홍길동",20,"서울"]
+            for(let i=0;i<3;i++){ // i<3에서 3인 이유. 배열 갯수가 3개이므로. 3미만으로 표현해야 올바름
+                console.log(hkd[i]);
+            }
+
+        hkd[0]="왕건";
+        console.log(hkd[0]);
+
+        let lss={name: "이순신", age:20, address:"서울"}
+        console.log(lss.name);
+        console.log(lss.age);
+        console.log(lss.address);
+
+
+        //배열 안에 객체를 넣어서 함께 사용 가능
+        let students=[
+            {name: "이순신", age:20, address:"서울"},
+            {name: "홍길동", age:30, address:"제주"}
+        ];
+        console.log(students[0].name)
+        console.log(students[0].age)
+        console.log(students[0].address)
+        console.log(students[1].name)
+        console.log(students[1].age)
+        console.log(students[1].address)
+
+        //위처럼 쭉 늘여쓰면 코드가 너무 길어지기 때문에 함수로 간단하게 축약 가능
+        for(let i=0;i<2;i++){
+            console.log(students[i].name)
+            console.log(students[i].age);
+            console.log(students[i].address)
+        }
+
+        //객체 안에 배열을 사용하는 예시
+        let wg={
+            name:"왕건",
+            age:40,
+            address:"경기도",
+            subject:["철학","심리학"]
+        }
+        console.log(wg.subject[0]);
+        console.log(wg.subject[1]);
+
+        //위 예시에서는 배열이 철학,심리학 두개. 근데 만약 배열이 몇갠지 모른다?
+        // 그러면 아래와 같은 legth값을 사용하면 됨
+        for(let i=0;i<wg.subject.length;i++){
+            console.log(wg.subject[i]);
+        }
+
+
+        let student={
+            name:"hkd",
+            study:function(){
+                console.log("study");
+            }
+        }
+        student.study();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#box div").eq(3).css("backgroundColor","red")
+            $("#box div").click(function(){
+                console.log($(this).index())
+            })
+            $("#btn1").click(function(){
+                $("#box").addClass("hide")
+            })
+            $("#btn2").click(function(){
+                $("#box").removeClass("hide")
+            })
+            $("p").not(".intro").css("background","green")
+        })
+    </script>
+    <style>
+        .hide{opacity:0;}
+    </style>
+</head>
+<body>
+    <button id="btn1">hide</button>
+    <button id="btn2">show</button>
+    <div id="box">
+        <div id="box1">box1</div> 
+        <div id="box2">box2</div> 
+        <div id="box3">box3</div> 
+        <div id="box4">box4</div> 
+    </div>
+    <div>
+        <p>My name is Donald.</p>
+        <p class="intro">I live in Duckburg.</p>
+        <p class="intro">I love Duckburg.</p>
+        <p>My best friend is Mickey.</p>
+    </div>
+</body>
+</html>

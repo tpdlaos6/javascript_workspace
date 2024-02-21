@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animate</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#box1").animate({width:"300px"},3000)
+                      .animate({height:"300px"},3000)
+                      .animate({opacity:0.5},3000)
+
+            $("#stop1").click(function(){
+                $("#box1").stop(); //현재 애니메이션 중지 후, 다음 애니메이션 실행됨
+            })
+            $("#stop2").click(function(){
+                $("#box1").stop(true,true) // 모든 애니메이션 중지 후, 현재 애니메이션의 끝으로 이동
+            })
+            $("#stop3").click(function(){
+                $("#box1").stop(true,false) // 모든 애니메이션 중지.
+            })
+            $("#stop4").click(function(){
+                $("#box1").stop(false,true) // 현재 애니메이션 끝으로 가서 중지 후, 다음 애니메이션 실행
+            })
+            $("#stop5").click(function(){
+                $("#box1").stop(false,false) // stop()와 같음. 즉 stop()가 기본값이라는 의미.
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="stop1">stop1()</button>
+    <button id="stop2">stop2(ture,true)</button>
+    <button id="stop3">stop3(ture,false)</button>
+    <button id="stop4">stop4(false,true)</button>
+    <button id="stop5">stop5(false,false)</button>
+    <div id="box1" style="width: 200px; height: 200px; background: red;">box1</div>
+</body>
+</html>

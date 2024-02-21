@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <style>
+        #box1 {
+            height: 3500px;
+            background: orange ;           
+        }
+        #box2 {           
+            height: 1000px;           
+            border: 5px solid black;
+        }
+        #box3 {           
+            height: 500px;           
+            background: olive;
+        }
+    </style>
+    <script>
+        $(window).on('scroll',function() {
+            // console.log("window height "+$(window).height());            
+            // console.log("box2 offset top "+$("#curriculumn").offset().top),
+            // console.log("box2 height "+$("#curriculumn").height());  
+            console.log($(window).scrollTop()); 
+            if($(window).scrollTop()>$("#curriculumn").offset().top-$(window).height()+$("#curriculumn").height()){
+                $("#curriculumn").addClass("animate__animated").addClass("animate__fadeInLeft");
+            }
+        });
+        $(window).on('scroll',function() {
+            // console.log("window height "+$(window).height());            
+            // console.log("box2 offset top "+$("#curriculumn").offset().top),
+            // console.log("box2 height "+$("#curriculumn").height());  
+            console.log($(window).scrollTop()); 
+            if($(window).scrollTop()>$("#curriculumn2").offset().top-$(window).height()+$("#curriculumn2").height()){
+                $("#curriculumn2").addClass("animate__animated").addClass("animate__fadeInRight");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="box1">
+        <h1>jQuey scroll animation</h1>
+    </div>
+    <div id="box2">
+        <div id="curriculumn" style="opacity:0;width:300px;height:300px;background:darkgoldenrod"><h1>과정소개</h1></div>
+    </div>
+    <div id="curriculumn2" style="opacity:0;width:300px;height:300px;background:blue"><h1>과정소개</h1></div>
+    </div>
+</body>
+</html>

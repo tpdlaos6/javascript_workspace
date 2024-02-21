@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $.ajax({
+                    url:"data.txt",
+                    success:function(data){
+                        let arr=data.split(",");
+                        let str="이름 : "+arr[0]+","+"주소 : "+arr[1]+","+"전공 : "+arr[2]
+                       
+                        $("#box1").html(str) //box1번에 str 데이터를 넣어라는 의미
+                    }
+                        
+                })
+            })
+            $("#btn2").click(function(){
+                $.ajax({
+                    url:"data.xml",
+                    success:function(data){
+                        console.log($(data).find("name").text());
+                        let str="이름:"+$(data).find("name").text()+","
+                                +"주소:"+$(data).find("address").text()+","
+                                +"전공:"+$(data).find("department").text();
+                        
+                        $("#box2").html(str);
+                    }
+                })
+            })
+            $("#btn3").click(function(){
+                $.ajax({
+                    url:"data.json",
+                    success:function(data){
+                        console.log(data.name);
+                        let str="이름 : "+data.name+","
+                                +"주소 : "+data.address+","
+                                +"전공 : "+data.department;
+
+                        $("#box3").html(str)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="btn1">CSV</button>
+    <div id="box1">
+
+    </div>    
+    <button id="btn2">XML</button>
+    <div id="box2">
+        
+    </div>
+    <button id="btn3">JSON</button>
+    <div id="box3">
+
+    </div>
+
+</body>
+</html>
