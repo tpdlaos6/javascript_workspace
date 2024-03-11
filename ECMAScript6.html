@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMAScript6</title>
+    <script>
+        let a=10; // 변수
+        console.log(a);
+        
+        const b=10; // 상수
+        // b=20; // 에러
+        
+        //화살표 함수. 현재 사용하는 람다식
+        const x=(x,y)=>x*y;
+        console.log(x(10,2));
+
+        // 아래 y와 z가 과거방식
+        var y=function(x,y){
+            return x*y
+        };
+        function z(x,y){
+            return x*y
+        };
+        console.log(y(1,2));
+        console.log(z(2,4));
+
+        //Class
+        class Car{
+            constructor(name,year){
+                this.name=name;
+                this.year=year;
+            }
+        }
+
+        const myCar1=new Car("소나타",2021);
+        console.log(myCar1.name);
+        console.log(myCar1.year);
+
+
+        //전개구문(Spread Syntax)
+        function sum(x,y,z){
+            return x+y+z;
+        }
+
+        const numbers=[1,2,3]; // 대괄호는 배열
+        console.log(sum(...numbers)); // 배열 갯수 늘려도, 무조건 앞에 3가지만 더해줌.
+        console.log(sum(1,2,3));
+        console.log(sum.apply(null,numbers)); // 전개구문과 유사한 역할
+
+        var arr=[1,2,3] // 배열
+        var arr2=arr; // 참조값만 복사
+        var arr2=[...arr]; // arr.slice()와 유사. 배열을 복사
+        arr2.push(4); // push()는 배열에 추가 하는 것. push(4)는 배열에 4를 추가한다는 뜻
+        console.log(arr);
+        console.log(arr2)
+
+        var obj1={foo:"bar", x:42} // 중괄호는 객체
+        var obj2={foo:"baz", y:13}
+        console.log(obj1);
+        console.log(obj2);
+        
+        var cloneObj={...obj1} // 객체를 복사
+        console.log(cloneObj);
+        
+        var mergedObj={...obj1, ...obj2}; // 객체를 합침. 
+        console.log(mergedObj); // 합쳤는데, foo가 baz만 나오는 이유. 
+        //obj1도 foo이고, obj2도 foo인 경우, 뒤에 나오는 값이 앞에껄 덮어쓴다
+
+
+        //구조분해할당(Destructuring Assignment)
+        //배열을 구조분해할당 하려면 [], 객체를 구조분해할당 하려면 {}
+
+        [c,d]=[10,20]; // 배열 구조분해
+        console.log(c);
+        console.log(d);
+                        
+        [c,d,...rest]=[10,20,30,40,50] // 배열 구조분해. spread syntax(...)같이 사용
+        console.log(rest);
+
+        ({c,d}={c:200,d:300}); // 객체 구조분해
+        console.log(c);
+        console.log(d);
+        
+        ({c,d,...rest}={a:10, b:20, c:30, d:40}); // 객체구조분해, 전개구문과 같이 사용
+        console.log(rest); // c와 d를 넣고, 남은 a와 b를 ...rest에 넣어서 보여줌
+
+        /*map은 ECMAScript5에서 도입됨*/
+        //map이라는 함수는, 그 리턴값을 배열에 하나씩 차례대로 넣어줌
+        const array1=[1,4,9,16];
+        const map1=array1.map(x=>x*2); 
+        console.log(map1);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
